@@ -1,6 +1,7 @@
 import React from 'react'
+import Item from './Item'
 
-const ItemList = ({items}) => {
+const ItemList = ({item}) => {
   return (
     <div className='item' id='itemList'>
         {item.map(i =>
