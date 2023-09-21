@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowseRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Saludo from './Components/Saludo';
 import './App.css';
 import Navbar from './Components/Navbar';
@@ -10,7 +10,7 @@ import Error404 from './Components/Error404';
 function App() {
   return (
     <div>
-      <BrowseRouter>
+      <BrowserRouter>
         <Navbar/>
         <Routes>
           <Route path={"/"} element={<ItemListContainer/>}/>
@@ -18,7 +18,7 @@ function App() {
           <Route path={"/item/:id"} element={<ItemDetailContainer/>}/>
           <Route path={"*"} element={<Error404/>}/>
         </Routes>
-      </BrowseRouter>
+      </BrowserRouter>
     </div>
   );
 }

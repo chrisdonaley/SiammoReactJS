@@ -26,7 +26,7 @@
         {
             "id": 4,
             "name": "Cheddar",
-            "description": "Pizza Muzzarella con cheddar",
+            "description": "Hamburguesa con cheddar",
             "price": 300,
             "img": "",
             "stock" : 10
@@ -34,7 +34,7 @@
         {
             "id": 5,
             "name": "Muzza y Morron",
-            "description": "Pizza Muzzarella y Morron",
+            "description": "Hamburguesa con Muzza y Morron",
             "price": 250,
             "img": "",
             "stock" : 10
@@ -42,9 +42,34 @@
         },
         {
             "id": 6,
-            "name": "Muzza con Huevo Frito",
-            "description": "Pizza Muzzarella con Huevo frito",
+            "name": "Huevo Frito",
+            "description": "Hamburguesa con Muzzarella y Huevo frito",
             "price": 380,
+            "img": "",
+            "stock" : 10
+        },
+        {
+            "id": 7,
+            "name": "Chivito",
+            "description": "Chivito comun completo",
+            "price": 300,
+            "img": "",
+            "stock" : 10
+        },
+        {
+            "id": 8,
+            "name": "Chivito al pan",
+            "description": "Chivito al pan con fritas",
+            "price": 250,
+            "img": "",
+            "stock" : 10
+
+        },
+        {
+            "id": 9,
+            "name": "Canadiense",
+            "description": "Chivito canadiense completo y fritas",
+            "price": 500,
             "img": "",
             "stock" : 10
         }
