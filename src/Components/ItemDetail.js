@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemCount from './ItemCount'
 
-const ItemDetail = (item) => {
+const ItemDetail = ({item}) => {
   return (
     <div className='row'>
         <div className='col-md-4 offset-md-4'>

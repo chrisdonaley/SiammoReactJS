@@ -8,13 +8,13 @@ const ItemCount = ({stockItems}) => {
 
     const incrementStock = () =>{
         if (counter < stock ){
-            setCounter(counter ++);
+            setCounter(counter+1);
         }
     }
 
     const decrementStock = () =>{
         if (counter > 1){
-            setCounter (counter--);
+            setCounter (counter-1);
         }
     }
 
@@ -25,7 +25,7 @@ const ItemCount = ({stockItems}) => {
                 <div className='btn-group' role='group' aria-label='Basic outlined example'>
                     <button type='button' onClick={decrementStock}>➖</button>
                     <button type='button' >{counter}</button>
-                    <button type='button' onClick={decrementStock}>➕</button>
+                    <button type='button' onClick={incrementStock}>➕</button>
                 </div>
             </div>  
         </div>

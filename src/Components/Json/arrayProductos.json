@@ -2,42 +2,51 @@
         {
             "id": 1,
             "name": "Aceituna",
-            "description": "Pizza con aceitunas, tamaño grande",
+            "description": "Pizza con aceitunas",
             "price": 350,
-            "img": "",
-            "stock" : 10
+            "img": "https://media-cdn.tripadvisor.com/media/photo-s/11/14/fb/b1/pizza-muzzarella.jpg",
+            "stock" : 10,
+            "category":"pizzas"
         },
         {
             "id": 2,
             "name": "Caprese",
-            "description": "Pizza Caprese, tamaño grande",
+            "description": "Pizza Caprese",
             "price": 370,
-            "img": "",
-            "stock" : 10
+            "img": "https://comercialjimara.es/wp-content/uploads/2018/03/Fotolia_41326656_Subscription_Monthly_XL.jpg",
+            "stock" : 10,
+            "category":"pizzas"
+
         },
         {
             "id": 3,
             "name": "Muzzarella",
-            "description": "Pizza Muzzarella, tamaño mediano",
+            "description": "Pizza Muzzarella",
             "price": 250,
-            "img": "",
-            "stock" : 10
+            "img": "https://glacial.com.uy/3335-large_default/pizza-mozzarella-grande-reforzada-glacial.jpg",
+            "stock" : 10,
+            "category":"pizzas"
+
         },
         {
             "id": 4,
             "name": "Cheddar",
             "description": "Hamburguesa con cheddar",
             "price": 300,
-            "img": "",
-            "stock" : 10
+            "img": "https://mcdonalds.es/api/cms/images/mcdonalds-es/f7634852-508e-48ff-a44b-8288afb616af_image006.png?auto=compress,format",
+            "stock" : 10,
+            "category":"hamburguesas"
+
         },
         {
             "id": 5,
-            "name": "Muzza y Morron",
-            "description": "Hamburguesa con Muzza y Morron",
+            "name": "Muzza y Cebolla",
+            "description": "Hamburguesa con Muzza y cebolla",
             "price": 250,
-            "img": "",
-            "stock" : 10
+            "img": "https://cdn2.cocinadelirante.com/sites/default/files/images/2022/09/hamburguesas-jugosas-cebolla-caramelizada.jpg",
+            "stock" : 10,
+            "category":"hamburguesas"
+
 
         },
         {
@@ -45,24 +54,30 @@
             "name": "Huevo Frito",
             "description": "Hamburguesa con Muzzarella y Huevo frito",
             "price": 380,
-            "img": "",
-            "stock" : 10
+            "img": "https://haceloconhuevos.com/wp-content/uploads/2022/07/HAMBURGUESA-CON-HUEVO-FRITO-Y-TOCINETA.jpg",
+            "stock" : 10,
+            "category":"hamburguesas"
+
         },
         {
             "id": 7,
             "name": "Chivito",
             "description": "Chivito comun completo",
             "price": 300,
-            "img": "",
-            "stock" : 10
+            "img": "https://www.cocina-uruguaya.com/base/stock/Recipe/48-image/48-image_web.jpg",
+            "stock" : 10,
+            "category":"chivitos"
+
         },
         {
             "id": 8,
             "name": "Chivito al pan",
             "description": "Chivito al pan con fritas",
             "price": 250,
-            "img": "",
-            "stock" : 10
+            "img": "https://imagenes.montevideo.com.uy/imgnoticias/201608/574584.jpg",
+            "stock" : 10,
+            "category":"chivitos"
+
 
         },
         {
@@ -70,7 +85,9 @@
             "name": "Canadiense",
             "description": "Chivito canadiense completo y fritas",
             "price": 500,
-            "img": "",
-            "stock" : 10
+            "img": "https://i.pinimg.com/originals/23/e0/dd/23e0dd23d95867b5b3d82083f175c971.jpg",
+            "stock" : 10,
+            "category":"chivitos"
+
         }
 ]

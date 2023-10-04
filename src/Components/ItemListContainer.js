@@ -14,8 +14,8 @@ const ItemListContainer = () => {
             try{
                 const data = await new Promise ((resolve)=>{
                     setTimeout(()=>{
-                        resolve(id ? arrayProductos.filter(i => i.cathegory === id) : arrayProductos)
-                    }, 10000);
+                        resolve(id ? arrayProductos.filter(i => i.category === id) : arrayProductos)
+                    }, 1500);
                 })
                 setItem(data);
             }catch(error){
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
 return (
     <div className='container'>
         <div className='row'>
-            <ItemList items={item}/>
+            <ItemList item={item}/>
         </div>
 
     </div>
