@@ -1,10 +1,13 @@
 import React from 'react'
-import {useState} from "react";
+import {useState, useContext} from "react";
+import { cartContext } from '../context/cartContext';
 
 const ItemCount = ({stockItems}) => {
 
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(stockItems);
+
+    const {addProduct} = useContext(cartContext)
 
     const incrementStock = () =>{
         if (counter < stock ){
@@ -16,6 +19,10 @@ const ItemCount = ({stockItems}) => {
         if (counter > 1){
             setCounter (counter-1);
         }
+    }
+
+    const handleAdd =()=>{
+        addProduct(counter);
     }
 
   return (
@@ -31,7 +38,7 @@ const ItemCount = ({stockItems}) => {
         </div>
         <div className='row'>
             <div className='col-md-2'>
-                <button type='button'> Agregar al carrito </button>
+                <button title='Agregar al carrito' action={handleAdd}/>
             </div>
 
         </div>
