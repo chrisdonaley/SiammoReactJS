@@ -5,10 +5,11 @@ import Navbar from './Components/Navbar';
 import ItemListContainer from './Components/ItemListContainer';
 import ItemDetailContainer from './Components/ItemDetailContainer' 
 import Error404 from './Components/Error404';
-
+import CartContext from './context/cartContext';
 function App() {
   return (
     <div>
+      <CartContext>
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -18,6 +19,7 @@ function App() {
           <Route path={"*"} element={<Error404/>}/>
         </Routes>
       </BrowserRouter>
+      </CartContext>
     </div>
   );
 }
