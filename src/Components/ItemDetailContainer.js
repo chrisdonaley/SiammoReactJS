@@ -8,20 +8,22 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState([]);
     const {id} = useParams();
+    const [loading, setLoading] = useState(true)
 
     useEffect(() =>{
         const promesa = new Promise ((resolve) =>{
             setTimeout(() => {
                 resolve(arrayProductos.find(item=> item.id === parseInt(id)));
                 
-            },3000);
+            },2000);
         })
     promesa.then((data)=>{
         setItem(data)
+        setLoading(false)
     })
     },[id])
 
-
+    if (loading) return <h2>Esta cargando el producto...</h2>
   return (
     <div className='container'>
         <ItemDetail item={item}/>

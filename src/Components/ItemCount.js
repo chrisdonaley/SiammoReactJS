@@ -38,7 +38,7 @@ const ItemCount = ({stockItems}) => {
         </div>
         <div className='row'>
             <div className='col-md-2'>
-                <button title='Agregar al carrito' action={handleAdd}/>
+                <button onClick={handleAdd}>Agregar al carrito</button>
             </div>
 
         </div>
