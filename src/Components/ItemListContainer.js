@@ -1,9 +1,9 @@
 import React, { useCallback, useContext } from 'react'
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import arrayProductos from './Json/arrayProductos.json'
 import ItemList from './ItemList'
 import { cartContext } from '../context/cartContext'
+import {getFirestore, collection, getDocs} from 'firebase/firestore'
 
 const ItemListContainer = () => {
 
@@ -13,19 +13,10 @@ const ItemListContainer = () => {
     const miContexto = useContext (cartContext) 
 
     useEffect(() =>{
-        const fetchData = async () =>{
-            try{
-                const data = await new Promise ((resolve)=>{
-                    setTimeout(()=>{
-                        resolve(id ? arrayProductos.filter(i => i.category === id) : arrayProductos)
-                    }, 1500);
-                })
-                setItem(data);
-            }catch(error){
-                console.log('Error:', error);
-            }
-        }
-        fetchData();
+        const querydb = getFirestore;
+        const queryCollection = collection(querydb, 'products');
+        getDocs(queryCollection)
+        .then(res=>setItem(res.docs.map(p=>({id: p.id, ...p.data()}))))
     },[id])
 
 return (
