@@ -13,7 +13,7 @@
             "name": "Caprese",
             "description": "Pizza Caprese",
             "price": 370,
-            "img": "https://comercialjimara.es/wp-content/uploads/2018/03/Fotolia_41326656_Subscription_Monthly_XL.jpg",
+            "img": "https://www.comedera.com/wp-content/uploads/2022/03/pizza-caprese.jpg",
             "stock" : 10,
             "category":"pizzas"
 
@@ -23,7 +23,7 @@
             "name": "Muzzarella",
             "description": "Pizza Muzzarella",
             "price": 250,
-            "img": "https://glacial.com.uy/3335-large_default/pizza-mozzarella-grande-reforzada-glacial.jpg",
+            "img": "https://thumbs.dreamstime.com/z/pizza-margherita-mozzarella-91847596.jpg",
             "stock" : 10,
             "category":"pizzas"
 
@@ -64,7 +64,7 @@
             "name": "Chivito",
             "description": "Chivito comun completo",
             "price": 300,
-            "img": "https://www.cocina-uruguaya.com/base/stock/Recipe/48-image/48-image_web.jpg",
+            "img": "https://i0.wp.com/www.todouruguay.net/wp-content/uploads/2014/09/Por_que_se_llama_chivito_el_chivito4.jpg?resize=600%2C372&ssl=1",
             "stock" : 10,
             "category":"chivitos"
 
