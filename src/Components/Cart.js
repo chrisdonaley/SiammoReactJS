@@ -19,6 +19,7 @@ const Cart = () => {
             price: product.price,
             quantity: product.quantity,
         })),
+        total : totalPrice(),
     }
 
     const handleClick = ()=>{

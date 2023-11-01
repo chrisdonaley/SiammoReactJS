@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Logo from './Logo';
 import CartWidget from './CartWidget';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+      
 return (
     <div>
         <div>
@@ -25,7 +26,7 @@ return (
                             <NavLink className="nav-link" to={"/category/chivitos"}>Nuestros Chivitos</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="#"><CartWidget/></NavLink>
+                            <NavLink className="nav-link" to={"/cart"} ><CartWidget/></NavLink>
                         </li>
                     </ul>
                 </div>
