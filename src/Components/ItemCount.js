@@ -2,12 +2,11 @@ import React from 'react'
 import {useState, useContext} from "react";
 import { cartContext, useCartContext } from '../context/cartContext';
 
-const ItemCount = ({stockItems}) => {
+const ItemCount = ({stockItems, onAdd}) => {
 
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(stockItems);
 
-    const {addProduct} = useCartContext();
 
     const incrementStock = () =>{
         if (counter < stock ){
@@ -22,7 +21,7 @@ const ItemCount = ({stockItems}) => {
     }
 
     const handleAdd =()=>{
-        addProduct(counter);
+        onAdd(counter);
     }
 
   return (

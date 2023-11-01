@@ -27,50 +27,52 @@ const manejarForm = (event) =>{
         setError('Los correos no coinciden, por favor revisarlos')
         return;
     }
+
+    const order = {
+        items: cart.map((product)=>({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: product.quantity,
+        })),
+        total: total,
+        fecha: new Date(),
+        name,
+        lastname,
+        phone,
+        email,
+    };
+    
+    Promise.all(
+        order.items.map(async(productOrder)=>{
+            const db= getFirestore();
+            const productRef = doc (db, 'products', productOrder.id);
+            const productDoc = await getDoc(productRef);
+            const stockAct = productDoc.data().stock;
+    
+            await updateDoc(productRef, {stock: stockAct - productOrder.cantidad})
+        })
+    ).then(()=>{
+        const db = getFirestore();
+        addDoc(collection(db, 'orders'), order)
+        .then((docRef)=>{
+            setOrderId(docRef.id);
+            removeProduct();
+        })
+        .catch((error)=>{
+            console.log('Hubo un error en la creacion de la orden', error);
+            setError('Error en orden');
+        })
+    });
+    
+    setName('');
+    setLastName('');
+    setPhone('');
+    setEmail('');
+    setEmailConfirm('');
+    
 }
 
-const order = {
-    items: cart.map((product)=>({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        quantity: product.quantity,
-    })),
-    total: total,
-    fecha: new Date(),
-    name,
-    lastname,
-    phone,
-    email,
-};
-
-Promise.all(
-    order.items.map(async(productOrder)=>{
-        const db= getFirestore();
-        const productRef = doc (db, 'products', productOrder.id);
-        const productDoc = await getDoc(productRef);
-        const stockAct = productDoc.data().stock;
-
-        await updateDoc(productRef, {stock: stockAct - productOrder.cantidad})
-    })
-).then(()=>{
-    const db = getFirestore();
-    addDoc(collection(db, 'orders'), order)
-    .then((docRef)=>{
-        setOrderId(docRef.id);
-        removeProduct();
-    })
-    .catch((error)=>{
-        console.log('Hubo un error en la creacion de la orden', error);
-        setError('Error en orden');
-    })
-});
-
-setName('');
-setLastName('');
-setPhone('');
-setEmail('');
-setEmailConfirm('');
 
 
 return(
@@ -126,7 +128,7 @@ return(
             {error && <p>{error}</p>}
 
             {orderId && (
-                <p>Gracias por comprar en Siammo! <br>Tu orden es : {orderId}</br></p>
+                <p>Gracias por comprar en Siammo!. Tu orden es : {orderId}</p>
             )}
             <div>
                 <button type='submit'>Finalizar mi compra</button>
