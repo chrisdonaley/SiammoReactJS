@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom';
 import { useCartContext } from '../context/cartContext';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
-
+import ItemCart from './ItemCart'
 const Cart = () => {
     const {cart, totalPrice} = useCartContext();
 
@@ -13,7 +13,7 @@ const Cart = () => {
             phone: '1111111111',
             adress: '123 abc st',
         },
-        items: cart.map ((product)=>({
+        items: cart.map((product)=>({
             id: product.id,
             title: product.title,
             price: product.price,
