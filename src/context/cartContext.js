@@ -12,8 +12,8 @@ const CartProvider = ({children}) => {
     const addProduct = (item, quantity) => {
         if (itemFound(item.id)){
             setCart(
-                cart.map((product)=> {
-                return product.id === item.id ? {...product, quantity: product.quantity + quantity} : product;
+                cart.map((products)=> {
+                return products.id === item.id ? {...products, quantity: products.quantity + quantity} : products;
             }),
             );
             }else{
@@ -33,10 +33,10 @@ const CartProvider = ({children}) => {
     const clearCart = ()=> setCart ([]);
 
     const itemFound = (id) =>
-        cart.find((product)=> product.id === id ? true: false);
+        cart.find((products)=> products.id === id ? true: false);
 
     const removeProduct = (id) =>
-        setCart (cart.filter((product) => product.id !== id));    
+        setCart (cart.filter((products) => products.id !== id));    
 
 
 
