@@ -1,7 +1,7 @@
 import {useState} from 'react'
-import { getFirestore, addDoc, collection, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useCartContext } from '../context/cartContext';
-import { Button } from 'bootstrap';
+
 
 export const Checkout = () =>{
     const [name, setName] = useState('');
@@ -28,6 +28,7 @@ const manejarForm = (event) =>{
         return;
     }
 }
+
 const order = {
     items: cart.map((product)=>({
         id: product.id,
@@ -41,7 +42,35 @@ const order = {
     lastname,
     phone,
     email,
-}
+};
+
+Promise.all(
+    order.items.map(async(productOrder)=>{
+        const db= getFirestore();
+        const productRef = doc (db, 'products', productOrder.id);
+        const productDoc = await getDoc(productRef);
+        const stockAct = productDoc.data().stock;
+
+        await updateDoc(productRef, {stock: stockAct - productOrder.cantidad})
+    })
+).then(()=>{
+    const db = getFirestore();
+    addDoc(collection(db, 'orders'), order)
+    .then((docRef)=>{
+        setOrderId(docRef.id);
+        removeProduct();
+    })
+    .catch((error)=>{
+        console.log('Hubo un error en la creacion de la orden', error);
+        setError('Error en orden');
+    })
+});
+
+setName('');
+setLastName('');
+setPhone('');
+setEmail('');
+setEmailConfirm('');
 
 
 return(
@@ -49,12 +78,12 @@ return(
         <h1>Llena los datos del comprador</h1>
         <form onSubmit={manejarForm}>
             {cart.map((productos)=>(
-                <div key={productos.item.id}> 
+                <div key={productos.items.id}> 
                     <p>
-                        {productos.item.name} x {productos.item.cantidad}
+                        {productos.items.name} x {productos.items.cantidad}
                     </p>
                     <p>
-                        ${productos.item.precio}
+                        ${productos.items.precio}
                     </p>
                 </div>
             ))}
@@ -93,6 +122,12 @@ return(
                 value={emailConfirm}
                 onChange={(e)=>setEmailConfirm(e.target.value)}/>
             </div>
+
+            {error && <p>{error}</p>}
+
+            {orderId && (
+                <p>Gracias por comprar en Siammo! <br>Tu orden es : {orderId}</br></p>
+            )}
             <div>
                 <button type='submit'>Finalizar mi compra</button>
             </div>
