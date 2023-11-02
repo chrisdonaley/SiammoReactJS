@@ -79,16 +79,20 @@ return(
     <div>
         <h1>Llena los datos del comprador</h1>
         <form onSubmit={manejarForm}>
-            {cart.map((productos)=>(
-                <div key={productos.items.id}> 
-                    <p>
-                        {productos.items.name} x {productos.items.cantidad}
-                    </p>
-                    <p>
-                        ${productos.items.precio}
-                    </p>
+        <p>Su orden el día de hoy es:</p>
+            {cart.map((product)=>(
+                <div key={product.id}> 
+                    <ol>
+                        <p>
+                            {product.title} x {product.quantity}
+                        </p>
+                        <p>
+                            ${product.price}
+                        </p>
+                    </ol>
                 </div>
             ))}
+            <p>El precio total es: ${totalPrice()}</p>
             <div>
                 <label className='lab-check'>Nombre:</label>
                 <input className='input-check'
